@@ -5,16 +5,19 @@
 
   <nav id="nav" class="col-lg-12">
     <ul>
-      <li><a [routerLink]="['vehiculos']" [routerLinkActive]="['activado']">Vehiculos</a></li>
-      <li><a [routerLink]="['usuario']" [routerLinkActive]="['activado']">Usuarios</a></li>
+      <li><a [routerLink]="['vehiculo-lista']" [routerLinkActive]="['activado']">Lista de vehículos</a></li>
+      <li><a [routerLink]="['vehiculo-crear']" [routerLinkActive]="['activado']">Vehículo</a></li>
+      <li><a [routerLink]="['usuario-lista']" [routerLinkActive]="['activado']">Lista de usuarios</a></li>
+      <li><a [routerLink]="['usuario-crear']" [routerLinkActive]="['activado']">Usuario</a></li>
     </ul>
   </nav>
   <br>
   <section id="main" class="col-lg-12">
+    <lib-ngx-notification></lib-ngx-notification>
     <router-outlet></router-outlet>
   </section>
   
   <footer id="footer" class="col-lg-12">
-      <p>Sistema para control de vehículos en MotoShop San Rafael</p>
+      <p>Sistema para el control de vehículos de MotoShop San Rafael</p>
   </footer>
 </div>  

@@ -1,0 +1,28 @@
+#cajonIzq {
+    float: left;
+}
+
+#cajonDer {
+    float: right;
+}
+
+#form-vehiculo{
+    padding-top: 20px;
+}
+
+#botonCrearVehiculo{
+    margin-top: 40px;
+}
+
+#nombreCampo{
+    margin-top: 10px;
+}
+
+#encabezado{
+    background-color: #80A8D2;
+    color: white;
+}
+
+.eliminado{
+    background-color: #CCC;
+}

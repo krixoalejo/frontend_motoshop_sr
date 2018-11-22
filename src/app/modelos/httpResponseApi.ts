@@ -1,5 +1,5 @@
 export class HttpResponseApi{
-	status?: boolean;
-	message?: string;
+	estado?: boolean;
+	mensaje?: string;
 	data?: any;
 }

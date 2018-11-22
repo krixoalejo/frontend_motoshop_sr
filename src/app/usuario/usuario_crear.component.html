@@ -1,0 +1,89 @@
+<h3>{{titulo}}</h3>
+<hr>
+<div class="container-fluid">
+    <div  class="row">
+        <form #formUsuario="ngForm" (ngSubmit)="guardarUsuario()" 
+            class="col-sm-12 jumbotron" id="form-usuario">
+            <div class="col-sm-4 offset-2" id="cajonIzq">
+                <label>
+                    <strong>Tipo de identificacion</strong>
+                    <span *ngIf="!tipoIdentificacion.valid && tipoIdentificacion.touched" class="badge badge-danger">
+                        El tipo de Iientificacion es obligatorio
+                    </span>
+                </label>
+                <input type="text" #tipoIdentificacion="ngModel" name="tipoIdentificacion" [(ngModel)]="usuario.tipoIdentificacion" 
+                    class="form-control" required>
+                <label id="nombreCampo">
+                    <strong>Primer nombre</strong>
+                    <span *ngIf="!primerNombre.valid && primerNombre.touched" class="badge badge-danger">
+                       El primer nombre es obligatorio
+                    </span>
+                </label>
+                <input type="text" #primerNombre="ngModel" name="primerNombre" [(ngModel)]="usuario.primerNombre" 
+                    class="form-control" required>
+                <label id="nombreCampo">
+                    <strong>Primer apellido</strong>
+                    <span *ngIf="!primerApellido.valid && primerApellido.touched" class="badge badge-danger">
+                        El primer apellido es obligatorio
+                    </span>
+                </label>
+                <input type="text" #primerApellido="ngModel" name="primerApellido" [(ngModel)]="usuario.primerApellido" 
+                    class="form-control" required>
+                <label id="nombreCampo">
+                    <strong>Teléfono</strong>
+                    <span *ngIf="!telefono.valid && telefono.touched" class="badge badge-danger">
+                        El teléfono es obligatorio
+                    </span>
+                </label>
+                <input type="text" #telefono="ngModel" name="telefono" [(ngModel)]="usuario.telefono" 
+                    class="form-control" required>
+                <label id="nombreCampo">
+                    <strong>Correo electrónico</strong>
+                    <span *ngIf="!correoElectronico.valid && correoElectronico.touched" class="badge badge-danger">
+                        El correo electrónico es obligatorio
+                    </span>
+                </label>
+                <input type="text" #correoElectronico="ngModel" name="correoElectronico" [(ngModel)]="usuario.correoElectronico" 
+                    class="form-control" required>
+            </div>
+            <div class="col-sm-4" id="cajonIzq">
+                <label id="nombreCampo">
+                    <strong>Identificación</strong>
+                    <span *ngIf="!identificacion.valid && identificacion.touched" class="badge badge-danger">
+                        La identificacion es obligatoria
+                    </span>
+                </label>
+                <input type="text" #identificacion="ngModel" name="identificacion" [(ngModel)]="usuario.identificacion" 
+                    class="form-control" required>
+                <label id="nombreCampo">
+                    <strong>Segundo nombre</strong>
+                </label>
+                <input type="text" #segundoNombre="ngModel" name="segundoNombre" [(ngModel)]="usuario.segundoNombre" 
+                    class="form-control">
+                <label id="nombreCampo">
+                    <strong>Segundo apellido</strong>
+                </label>
+                <input type="text" #segundoApellido="ngModel" name="segundoApellido" [(ngModel)]="usuario.segundoApellido" 
+                    class="form-control">
+                <label id="nombreCampo">
+                    <strong>Celular</strong>
+                    <span *ngIf="!celular.valid && celular.touched" class="badge badge-danger">
+                        El celular es obligatorio
+                    </span>
+                </label>
+                <input type="text" #celular="ngModel" name="celular" [(ngModel)]="usuario.celular" 
+                    class="form-control" required>
+                <label id="nombreCampo">
+                    <strong>Dirección</strong>
+                    <span *ngIf="!direccion.valid && direccion.touched" class="badge badge-danger">
+                        La dirección es obligatoria
+                    </span>
+                </label>
+                <input type="text" #direccion="ngModel" name="direccion" [(ngModel)]="usuario.direccion" 
+                    class="form-control" required>
+            </div>
+            <input type="submit" value="{{titulo}}" [disabled]="!formUsuario.form.valid" 
+                id="botonCrearUsuario" class="col-sm-4 offset-4 btn btn-success">
+        </form>
+    </div>
+</div>

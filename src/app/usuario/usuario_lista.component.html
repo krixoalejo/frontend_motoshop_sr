@@ -1,0 +1,44 @@
+<h3>{{titulo}}</h3>
+<hr>
+<table class="table table-hover">
+    <thead id="encabezado">
+        <tr>
+            <th>Fecha de creación</th>
+            <th>Tipo de identificación</th>
+            <th>Identificación</th>
+            <th>Nombre</th>
+            <th>Correo electrónico</th>
+            <th>Teléfono</th>
+            <th>Celular</th>
+            <th>Dirección</th>
+            <th>Estado</th>
+        </tr>
+    </thead>
+    <tbody *ngIf="listaUsuarios">
+        <tr *ngFor="let usuario of listaUsuarios">
+            <td>{{ usuario.createdAt | date }}</td>
+            <td>{{ usuario.tipoIdentificacion }}</td>
+            <td>{{ usuario.identificacion }}</td>
+            <td>{{ usuario.primerNombre }} {{ usuario.segundoNombre }} 
+                {{ usuario.primerApellido }} {{ usuario.segundoApellido }}</td>
+            <td>{{ usuario.correoElectronico }}</td>
+            <td>{{ usuario.telefono }}</td>
+            <td>{{ usuario.celular }}</td>
+            <td>{{ usuario.direccion }}</td>
+            <td>{{ usuario.estado }}</td>
+        </tr>
+    </tbody>
+    <tbody *ngIf="!listaUsuarios">
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>No hay usuarios</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>

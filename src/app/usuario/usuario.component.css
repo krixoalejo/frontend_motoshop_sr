@@ -1,3 +1,28 @@
 #form-usuario label{
     margin-top: 10px;
 }
+
+#cajonIzq {
+    float: left;
+}
+
+#cajonDer {
+    float: right;
+}
+
+#form-usuario{
+    padding-top: 20px;
+}
+
+#botonCrearUsuario{
+    margin-top: 40px;
+}
+
+#nombreCampo{
+    margin-top: 10px;
+}
+
+#encabezado{
+    background-color: #80A8D2;
+    color: white;
+}

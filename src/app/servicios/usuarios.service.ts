@@ -1,8 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { map } from 'rxjs/operators';
-import { Observable } from 'rxjs';
-import { Usuario } from '../modelos/usuario';
 import { GLOBAL} from './global';
 import { HttpResponseApi } from '../modelos/httpResponseApi';
 
@@ -17,10 +14,6 @@ export class UsuarioServicio{
     }
 
     public obtenerUsuarios(): Promise <HttpResponseApi>{
-		return this._http.get<HttpResponseApi>(this.url+'usuarios').toPromise();
+		return this._http.get<HttpResponseApi>( this.url + GLOBAL.rutas.usuarios ).toPromise();
     }
-
-    // public obtenerUsuarios():HttpResponseApi{
-    //     return this._http.get(this.url + 'usuarios').pipe(map((res: Response) => res.json()));        
-    // }
 }

@@ -11,8 +11,4 @@ export class ErrorComponent{
     constructor(){
         this.titulo = 'Error 404';
     }
-
-    ngOnInit(){
-        console.log('Componente error.component.ts cargado');        
-    }
 }

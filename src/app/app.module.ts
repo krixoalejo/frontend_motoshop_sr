@@ -1,26 +1,33 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule }   from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { routing, appRoutingProviders } from './app.routing';
+import { NgxNotificationComponent } from 'ngx-notification';
 
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 
-import { HomeComponent } from './home/home.component';
 import { ErrorComponent } from './error/error.component';
-import { UsuarioComponent } from './usuario/usuario.component';
+import { UsuarioListaComponent } from './usuario/usuario_lista.component';
+import { UsuarioCrearComponent } from './usuario/usuario_crear.component';
+import { VehiculoCrearComponent } from './vehiculo/vehiculo_crear.component';
+import { VehiculoListaComponent } from './vehiculo/vehiculo_lista.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
+    NgxNotificationComponent,
     ErrorComponent,
-    UsuarioComponent
+    UsuarioCrearComponent,
+    UsuarioListaComponent,
+    VehiculoCrearComponent,
+    VehiculoListaComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     routing
   ],
   providers: [

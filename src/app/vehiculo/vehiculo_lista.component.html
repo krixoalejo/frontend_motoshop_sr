@@ -1,0 +1,95 @@
+<h3>{{titulo}}</h3>
+<hr>
+<table class="table table-hover">
+    <thead id="encabezado">
+        <tr>
+            <th>Fecha de creación</th>
+            <th>Placa</th>
+            <th>Marca</th>
+            <th>Línea</th>
+            <th>Modelo</th>
+            <th>Cilindraje</th>
+            <th>Color</th>
+            <th>Propietario</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody *ngIf="listaVehiculos">
+        <tr *ngFor="let vehiculo of listaVehiculos">
+            <td (click)="vehiculo.estado === 'Activo' ? detalleVehiculo( vehiculo.id ) : null" 
+                [ngClass]="{'eliminado' : vehiculo.estado === 'Inactivo'}">{{
+                vehiculo.createdAt | date }}</td>
+            <td (click)="vehiculo.estado === 'Activo' ? detalleVehiculo( vehiculo.id ) : null" 
+                [ngClass]="{'eliminado' : vehiculo.estado === 'Inactivo'}">{{
+                vehiculo.placa }}</td>
+            <td (click)="vehiculo.estado === 'Activo' ? detalleVehiculo( vehiculo.id ) : null" 
+                [ngClass]="{'eliminado' : vehiculo.estado === 'Inactivo'}">{{
+                vehiculo.marca }}</td>
+            <td (click)="vehiculo.estado === 'Activo' ? detalleVehiculo( vehiculo.id ) : null" 
+                [ngClass]="{'eliminado' : vehiculo.estado === 'Inactivo'}">{{
+                vehiculo.linea }}</td>
+            <td (click)="vehiculo.estado === 'Activo' ? detalleVehiculo( vehiculo.id ) : null" 
+                [ngClass]="{'eliminado' : vehiculo.estado === 'Inactivo'}">{{
+                vehiculo.modelo }}</td>
+            <td (click)="vehiculo.estado === 'Activo' ? detalleVehiculo( vehiculo.id ) : null" 
+                [ngClass]="{'eliminado' : vehiculo.estado === 'Inactivo'}">{{
+                vehiculo.cilindraje }}</td>
+            <td (click)="vehiculo.estado === 'Activo' ? detalleVehiculo( vehiculo.id ) : null" 
+                [ngClass]="{'eliminado' : vehiculo.estado === 'Inactivo'}">{{
+                vehiculo.color }}</td>
+            <td (click)="vehiculo.estado === 'Activo' ? detalleVehiculo( vehiculo.id ) : null" 
+                [ngClass]="{'eliminado' : vehiculo.estado === 'Inactivo'}">{{
+                vehiculo.usuario }}</td>
+            <td (click)="vehiculo.estado === 'Activo' ? detalleVehiculo( vehiculo.id ) : null" 
+                [ngClass]="{'eliminado' : vehiculo.estado === 'Inactivo'}">{{
+                vehiculo.estado }}</td>
+            <td *ngIf="vehiculo.estado === 'Activo'" (click)="asignarIdVehiculo( vehiculo.id )" 
+                data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">
+                <span class="oi oi-trash" data-toggle="modal" 
+                    data-target="#exampleModal" data-whatever="@mdo" title="trash" aria-hidden="true">
+                </span>
+            </td>
+            <td *ngIf="vehiculo.estado === 'Inactivo'" 
+                [ngClass]="{'eliminado' : vehiculo.estado === 'Inactivo'}"></td>
+        </tr>
+    </tbody>
+    <tbody *ngIf="!listaVehiculos">
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>No hay vehículos</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="exampleModalLabel">Confirmación</h3>
+            </div>
+            <div class="modal-body row">
+                <form>
+                    <div class="form-group col-sm-12 offset-3">
+                        <span for="recipient-name">
+                            <h4> ¿Desea eliminar el registro? </h4>
+                        </span>
+                        <p>Ésta acción no se puede deshacer.</p>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="eliminarVehiculo()">Aceptar</button>
+            </div>
+        </div>
+    </div>
+</div>

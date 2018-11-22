@@ -1,0 +1,104 @@
+<h3>{{titulo}}</h3>
+<hr>
+<div class="container-fluid">
+    <div class="row">
+        <form [formGroup]="formVehiculo" (ngSubmit)="guardarVehiculo()" class="col-sm-12 jumbotron" id="form-vehiculo"
+            novalidate>
+            <div class="col-sm-4 offset-4">
+                <label>
+                    <strong>Número de identificación</strong>
+                    <div *ngIf="formVehiculo.get('usuario').errors && formVehiculo.get('usuario').dirty">
+                        <span *ngIf="formVehiculo.get('usuario').hasError('required')" class="badge badge-danger">
+                            La identificación es obligatoria
+                        </span>
+                        <span *ngIf="formVehiculo.get('usuario').hasError('maxlength')" class="badge badge-danger">
+                            Máximo 10 caracteres.
+                        </span>
+                        <span *ngIf="formVehiculo.get('usuario').hasError('minlength')" class="badge badge-danger">
+                            Mínimo 5 caracteres.
+                        </span>
+                    </div>
+                </label>
+                <input formControlName="usuario" type="text" class="form-control">
+            </div>
+            <hr class="col-sm-8 offset-2">
+            <div class="col-sm-4 offset-2" id="cajonIzq">
+                <label>
+                    <strong>Placa</strong>
+                    <div *ngIf="formVehiculo.get('placa').errors && formVehiculo.get('placa').dirty">
+                        <span *ngIf="formVehiculo.get('placa').hasError('required')" class="badge badge-danger">
+                            La placa es obligatoria
+                        </span>
+                        <span *ngIf="formVehiculo.get('placa').hasError('maxlength')" class="badge badge-danger">
+                            Máximo 6 caracteres.
+                        </span>
+                        <span *ngIf="formVehiculo.get('placa').hasError('minlength')" class="badge badge-danger">
+                            Mínimo 5 caracteres.
+                        </span>
+                    </div>
+                </label>
+                <input formControlName="placa" type="text" class="form-control">
+                <label id="nombreCampo">
+                    <strong>Marca</strong>
+                    <div *ngIf="formVehiculo.get('marca').errors && formVehiculo.get('marca').dirty">
+                        <span *ngIf="formVehiculo.get('marca').hasError('required')" class="badge badge-danger">
+                            La marca es obligatoria
+                        </span>
+                    </div>
+                </label>
+                <input formControlName="marca" type="text" class="form-control">
+                <label id="nombreCampo">
+                    <strong>Línea</strong>
+                    <div *ngIf="formVehiculo.get('linea').errors && formVehiculo.get('linea').dirty">
+                        <span *ngIf="formVehiculo.get('linea').hasError('required')" class="badge badge-danger">
+                            La línea es obligatoria
+                        </span>
+                    </div>
+                </label>
+                <input formControlName="linea" type="text" class="form-control">
+            </div>
+            <div class="col-sm-4" id="cajonIzq">
+                <label>
+                    <strong>Modelo</strong>
+                    <div *ngIf="formVehiculo.get('modelo').errors && formVehiculo.get('modelo').dirty">
+                        <span *ngIf="formVehiculo.get('modelo').hasError('required')" class="badge badge-danger">
+                            El modelo es obligatorio
+                        </span>
+                        <span *ngIf="formVehiculo.get('modelo').hasError('maxlength')" class="badge badge-danger">
+                            Máximo 4 caracteres.
+                        </span>
+                        <span *ngIf="formVehiculo.get('modelo').hasError('minlength')" class="badge badge-danger">
+                            Mínimo 2 caracteres.
+                        </span>
+                    </div>
+                </label>
+                <input formControlName="modelo" type="text" class="form-control">
+                <label id="nombreCampo">
+                    <strong>Cilindraje</strong>
+                    <div *ngIf="formVehiculo.get('cilindraje').errors && formVehiculo.get('cilindraje').dirty">
+                        <span *ngIf="formVehiculo.get('cilindraje').hasError('required')" class="badge badge-danger">
+                            El cilindraje es obligatorio
+                        </span>
+                        <span *ngIf="formVehiculo.get('cilindraje').hasError('maxlength')" class="badge badge-danger">
+                            Máximo 4 caracteres.
+                        </span>
+                        <span *ngIf="formVehiculo.get('cilindraje').hasError('minlength')" class="badge badge-danger">
+                            Mínimo 1 caracteres.
+                        </span>
+                    </div>
+                </label>
+                <input formControlName="cilindraje" type="text" class="form-control">
+                <label id="nombreCampo">
+                    <strong>Color</strong>
+                    <div *ngIf="formVehiculo.get('color').errors && formVehiculo.get('color').dirty">
+                        <span *ngIf="formVehiculo.get('color').hasError('required')" class="badge badge-danger">
+                            El color es obligatorio
+                        </span>
+                    </div>
+                </label>
+                <input formControlName="color" type="text" class="form-control">
+            </div>
+            <input type="submit" value="{{titulo}}" [disabled]="formVehiculo.invalid" id="botonCrearVehiculo" class="col-sm-4 offset-4 btn btn-success">
+        </form>
+    </div>
+</div>

@@ -8,9 +8,6 @@ import { GLOBAL } from './servicios/global';
 })
 export class AppComponent {
   public title = 'MotoShop San Rafael';
-  public header_color:string;
 
-  constructor(){
-    this.header_color = GLOBAL.header_color;
-  }
+  constructor() { }
 }
