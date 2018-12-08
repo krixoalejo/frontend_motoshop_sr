@@ -9,11 +9,16 @@ export var GLOBAL = {
     rutas: {
         usuario: 'usuario',
         usuarios: 'usuarios',
+        usuarios_eliminar: 'usuarios/eliminar',
+        usuarios_obtenerlos: 'usuarios/obtenerlos',
         vehiculo: 'vehiculo',
         vehiculos: 'vehiculos',
+        vehiculos_obtenerlos: 'vehiculos/obtenerlos',
         vehiculos_eliminar: 'vehiculos/eliminar'
     },
     titulosVistas: {
+        crearUsuarios: 'Crear usuario',
+        editarUsuarios: 'Editar usuario',
         crearVehiculos: 'Crear vehículo',
         editarVehiculos: 'Editar vehículo'
     },

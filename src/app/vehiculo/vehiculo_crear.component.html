@@ -1,4 +1,9 @@
-<h3>{{titulo}}</h3>
+<div class="row"> 
+    <h3 class="col-sm-8">{{titulo}}</h3>
+    <div class="col-sm-4">
+        <input (click)="limpiarCampos()" type="button" value="{{tituloBtnLimpiarCampos}}" id="cajonDer" class="col-sm-6 btn">        
+    </div>
+</div>
 <hr>
 <div class="container-fluid">
     <div class="row">
@@ -6,26 +11,26 @@
             novalidate>
             <div class="col-sm-4 offset-4">
                 <label>
-                    <strong>Número de identificación</strong>
-                    <div *ngIf="formVehiculo.get('usuario').errors && formVehiculo.get('usuario').dirty">
+                    <strong>Número de identificación:</strong>
+                    <div *ngIf="formVehiculo.get('usuario').errors && formVehiculo.get('usuario').dirty" id="cajonDer">
                         <span *ngIf="formVehiculo.get('usuario').hasError('required')" class="badge badge-danger">
                             La identificación es obligatoria
                         </span>
                         <span *ngIf="formVehiculo.get('usuario').hasError('maxlength')" class="badge badge-danger">
-                            Máximo 10 caracteres.
+                            Máximo 15 caracteres.
                         </span>
                         <span *ngIf="formVehiculo.get('usuario').hasError('minlength')" class="badge badge-danger">
                             Mínimo 5 caracteres.
                         </span>
                     </div>
                 </label>
-                <input formControlName="usuario" type="text" class="form-control">
+                <input formControlName="usuario" onkeypress='return event.charCode >= 48 && event.charCode <= 57' type="text" class="form-control">
             </div>
             <hr class="col-sm-8 offset-2">
             <div class="col-sm-4 offset-2" id="cajonIzq">
                 <label>
-                    <strong>Placa</strong>
-                    <div *ngIf="formVehiculo.get('placa').errors && formVehiculo.get('placa').dirty">
+                    <strong>Placa:</strong>
+                    <div *ngIf="formVehiculo.get('placa').errors && formVehiculo.get('placa').dirty" id="cajonDer">
                         <span *ngIf="formVehiculo.get('placa').hasError('required')" class="badge badge-danger">
                             La placa es obligatoria
                         </span>
@@ -37,30 +42,12 @@
                         </span>
                     </div>
                 </label>
-                <input formControlName="placa" type="text" class="form-control">
-                <label id="nombreCampo">
-                    <strong>Marca</strong>
-                    <div *ngIf="formVehiculo.get('marca').errors && formVehiculo.get('marca').dirty">
-                        <span *ngIf="formVehiculo.get('marca').hasError('required')" class="badge badge-danger">
-                            La marca es obligatoria
-                        </span>
-                    </div>
-                </label>
-                <input formControlName="marca" type="text" class="form-control">
-                <label id="nombreCampo">
-                    <strong>Línea</strong>
-                    <div *ngIf="formVehiculo.get('linea').errors && formVehiculo.get('linea').dirty">
-                        <span *ngIf="formVehiculo.get('linea').hasError('required')" class="badge badge-danger">
-                            La línea es obligatoria
-                        </span>
-                    </div>
-                </label>
-                <input formControlName="linea" type="text" class="form-control">
+                <input formControlName="placa" oninput="this.value = this.value.toUpperCase()" (keydown.space)="$event.preventDefault()" type="text" class="form-control">
             </div>
             <div class="col-sm-4" id="cajonIzq">
                 <label>
-                    <strong>Modelo</strong>
-                    <div *ngIf="formVehiculo.get('modelo').errors && formVehiculo.get('modelo').dirty">
+                    <strong>Modelo:</strong>
+                    <div *ngIf="formVehiculo.get('modelo').errors && formVehiculo.get('modelo').dirty" id="cajonDer">
                         <span *ngIf="formVehiculo.get('modelo').hasError('required')" class="badge badge-danger">
                             El modelo es obligatorio
                         </span>
@@ -72,10 +59,23 @@
                         </span>
                     </div>
                 </label>
-                <input formControlName="modelo" type="text" class="form-control">
+                <input formControlName="modelo" (keydown.space)="$event.preventDefault()" type="text" class="form-control">
+            </div>
+            <div class="col-sm-4 offset-2" id="cajonIzq">
                 <label id="nombreCampo">
-                    <strong>Cilindraje</strong>
-                    <div *ngIf="formVehiculo.get('cilindraje').errors && formVehiculo.get('cilindraje').dirty">
+                    <strong>Marca:</strong>
+                    <div *ngIf="formVehiculo.get('marca').errors && formVehiculo.get('marca').dirty" id="cajonDer">
+                        <span *ngIf="formVehiculo.get('marca').hasError('required')" class="badge badge-danger">
+                            La marca es obligatoria
+                        </span>
+                    </div>
+                </label>
+                <input formControlName="marca" type="text" class="form-control">
+            </div>
+            <div class="col-sm-4" id="cajonIzq">
+                <label id="nombreCampo">
+                    <strong>Cilindraje:</strong>
+                    <div *ngIf="formVehiculo.get('cilindraje').errors && formVehiculo.get('cilindraje').dirty" id="cajonDer">
                         <span *ngIf="formVehiculo.get('cilindraje').hasError('required')" class="badge badge-danger">
                             El cilindraje es obligatorio
                         </span>
@@ -88,9 +88,22 @@
                     </div>
                 </label>
                 <input formControlName="cilindraje" type="text" class="form-control">
+            </div>
+            <div class="col-sm-4 offset-2" id="cajonIzq">
                 <label id="nombreCampo">
-                    <strong>Color</strong>
-                    <div *ngIf="formVehiculo.get('color').errors && formVehiculo.get('color').dirty">
+                    <strong>Línea:</strong>
+                    <div *ngIf="formVehiculo.get('linea').errors && formVehiculo.get('linea').dirty" id="cajonDer">
+                        <span *ngIf="formVehiculo.get('linea').hasError('required')" class="badge badge-danger">
+                            La línea es obligatoria
+                        </span>
+                    </div>
+                </label>
+                <input formControlName="linea" type="text" class="form-control">
+            </div>
+            <div class="col-sm-4" id="cajonIzq">
+                <label id="nombreCampo">
+                    <strong>Color:</strong>
+                    <div *ngIf="formVehiculo.get('color').errors && formVehiculo.get('color').dirty" id="cajonDer">
                         <span *ngIf="formVehiculo.get('color').hasError('required')" class="badge badge-danger">
                             El color es obligatorio
                         </span>

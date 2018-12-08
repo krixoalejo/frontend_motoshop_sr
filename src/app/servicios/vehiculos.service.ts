@@ -14,13 +14,11 @@ export class VehiculoServicio {
     }
 
     public async obtenerVehiculoPorId(idVehiculo) {
-        let vehi = await this._http.get<HttpResponseApi>(this.url + GLOBAL.rutas.vehiculos + '/' + idVehiculo).toPromise();
-        return vehi;
-
+        return await this._http.get<HttpResponseApi>(this.url + GLOBAL.rutas.vehiculos + '/' + idVehiculo).toPromise();
     }
 
-    public obtenerVehiculos(): Promise<HttpResponseApi> {
-        return this._http.get<HttpResponseApi>(this.url + GLOBAL.rutas.vehiculos).toPromise();
+    public obtenerVehiculos(filtros): Promise<HttpResponseApi> {
+        return this._http.post<HttpResponseApi>(this.url + GLOBAL.rutas.vehiculos_obtenerlos, filtros).toPromise();
     }
 
     public guardarVehiculo(vehiculo): Promise<HttpResponseApi> {
@@ -31,7 +29,7 @@ export class VehiculoServicio {
         return this._http.put<HttpResponseApi>(this.url + GLOBAL.rutas.vehiculos, vehiculo).toPromise();
     }
 
-    public eliminarVehiculo(idVehiculo): Promise<HttpResponseApi> {
-        return this._http.put<HttpResponseApi>(this.url + GLOBAL.rutas.vehiculos_eliminar, { idVehiculo: idVehiculo }).toPromise();
+    public eliminarVehiculo(idVehi): Promise<HttpResponseApi> {     
+        return this._http.put<HttpResponseApi>(this.url + GLOBAL.rutas.vehiculos_eliminar, { idVehiculo: idVehi }).toPromise();
     }
 }

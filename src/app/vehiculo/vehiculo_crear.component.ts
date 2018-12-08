@@ -18,6 +18,7 @@ export class VehiculoCrearComponent {
     public idVehiculo;
     public vehiculo: Vehiculo;
     public formVehiculo: FormGroup;
+    public tituloBtnLimpiarCampos: string;
 
     constructor(
         private _notificacionesServicio: NotificacionesServicio,
@@ -27,11 +28,12 @@ export class VehiculoCrearComponent {
         public _fb: FormBuilder
     ) {
         this.vehiculo = new Vehiculo(0,0,0,'','','','','','',0,0,0);
+        this.tituloBtnLimpiarCampos = 'Limpiar campos';
         this.formVehiculo = this._fb.group({
             createdAt: ['', []],
             updatedAt: ['', []],
             id: ['', []],
-            usuario: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(10)]],
+            usuario: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(15)]],
             placa: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(6)]],
             marca: ['', [Validators.required]],
             linea: ['', [Validators.required]],
@@ -96,5 +98,10 @@ export class VehiculoCrearComponent {
                 this.sendNotification( respuesta.estado, respuesta.mensaje );
             }        
         }
+    }
+
+    public limpiarCampos(){
+        this.formVehiculo.reset();
+        this._router.navigate(['/vehiculo-crear']);
     }
 }

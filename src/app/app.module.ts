@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { routing, appRoutingProviders } from './app.routing';
 import { NgxNotificationComponent } from 'ngx-notification';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -28,7 +29,8 @@ import { VehiculoListaComponent } from './vehiculo/vehiculo_lista.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    routing
+    routing,
+    NgbModule
   ],
   providers: [
     appRoutingProviders
